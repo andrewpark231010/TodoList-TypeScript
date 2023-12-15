@@ -1,15 +1,26 @@
-// TodoList.js
+// src/components/TodoList.tsx
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTodo, toggleTodo } from "../Slice/todoSlice";
 
-function TodoList({ isDone }) {
+interface Todo {
+  id: string;
+  title: string;
+  contents: string;
+  isDone: boolean;
+}
+
+interface TodoListProps {
+  isDone: boolean;
+}
+
+const TodoList: React.FC<TodoListProps> = ({ isDone }) => {
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todos);
+  const todos: Todo[] = useSelector((state: { todos: Todo[] }) => state.todos);
 
   return (
     <div>
-      <h2>{isDone ? "DONELIST" : "TODOLIST"}</h2>
+      <h2>{isDone ? "Done...!" : "Working..."}</h2>
       {todos
         .filter((t) => t.isDone === isDone)
         .map((todo) => (
@@ -41,6 +52,6 @@ function TodoList({ isDone }) {
         ))}
     </div>
   );
-}
+};
 
 export default TodoList;

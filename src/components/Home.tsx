@@ -1,18 +1,26 @@
+// src/components/Home.tsx
 import { v4 as uuidv4 } from "uuid";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../Slice/todoSlice";
 import TodoList from "./TodoList";
 
-function Home() {
+interface Todo {
+  id: string;
+  title: string;
+  contents: string;
+  isDone: boolean;
+}
+
+const Home: React.FC = () => {
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todos);
+  const todos: Todo[] = useSelector((state: { todos: Todo[] }) => state.todos);
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
 
-  const handleAddTodo = (event) => {
+  const handleAddTodo = (event: React.FormEvent) => {
     event.preventDefault();
-    const newTodo = {
+    const newTodo: Todo = {
       id: uuidv4(),
       title,
       contents,
@@ -31,7 +39,7 @@ function Home() {
       }}
     >
       <div>
-        <h3>INPUT 영역</h3>
+        <h3>ToDo List</h3>
         <div>
           <form onSubmit={handleAddTodo}>
             <input
@@ -54,6 +62,6 @@ function Home() {
       <TodoList isDone={true} />
     </main>
   );
-}
+};
 
 export default Home;
