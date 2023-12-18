@@ -1,46 +1,13 @@
-# Getting Started with Create React App
+# TypeScript란?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+TypeScript는 Microsoft에서 개발한 오픈 소스 프로그래밍 언어로, JavaScript에 정적 타입을 추가하여 코드의 가독성과 유지보수성을 향상시키는 것을 목표로 합니다. TypeScript는 JavaScript의 상위 집합이며, JavaScript와의 호환성을 지원합니다.
 
-## Available Scripts
+## TODO LIST에 추가한 부분
 
-In the project directory, you can run:
+redux-toolkit을 적용해보았습니다.
 
-### `yarn start`
+## TypeScript로 변환을 잘 하였는가?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+변환하는데 어려움이 있어, components 폴더에 있는 Home과 TodoList 파일들만 변환해 보았습니다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+다른 부분들을 (예를 들어, slice 폴더) TypeScript로 변환하려 했는데, 계속 error가 발생하고 뭐가 문제인지 알 수가 없어서 다른 부분들까지 손대려는 것 보다 할 수 있는 것에 집중해 보았습니다.
