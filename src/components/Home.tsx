@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../Slice/todoSlice";
 import TodoList from "./TodoList";
+import * as S from "../styledComponents/StyledComponents"
 
 interface Todo {
   id: string;
@@ -20,6 +21,12 @@ const Home: React.FC = () => {
 
   const handleAddTodo = (event: React.FormEvent) => {
     event.preventDefault();
+
+    if (!title || !contents) {
+      window.alert("제목과 내용을 모두 입력하세요.");
+      return;
+    }
+
     const newTodo: Todo = {
       id: uuidv4(),
       title,
@@ -32,34 +39,38 @@ const Home: React.FC = () => {
   };
 
   return (
-    <main
-      style={{
-        backgroundColor: "#c3f7c9",
-        padding: "10px",
-      }}
-    >
+    <main>
       <div>
-        <h3>ToDo List</h3>
-        <div>
+        <S.Header>
+          <S.headerFont>ToDo List</S.headerFont>
+        
+        <S.inputForm>
           <form onSubmit={handleAddTodo}>
-            <input
+            <S.inputBox
               type="text"
               placeholder="제목을 입력하세요."
               value={title}
               onChange={(event) => setTitle(event.target.value)}
             />
-            <input
+            <S.inputBox
               type="text"
               placeholder="내용을 입력하세요."
               value={contents}
               onChange={(event) => setContents(event.target.value)}
             />
-            <button type="submit">제출</button>
+            <S.submitButton  type="submit">제출</S.submitButton>
           </form>
-        </div>
+        </S.inputForm>
+        </S.Header>
       </div>
+      <S.todoContainer>
+        <S.todoListContainer>
       <TodoList isDone={false} />
+      </S.todoListContainer>
+      <S.todoListContainer>
       <TodoList isDone={true} />
+      </S.todoListContainer>
+      </S.todoContainer>
     </main>
   );
 };
